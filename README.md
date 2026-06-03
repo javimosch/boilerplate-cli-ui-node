@@ -2,7 +2,7 @@
 
 **Agent-first CLI + Web UI boilerplate for Node.js.** Builds to a single binary (~123MB) with no runtime dependencies.
 
-**Go versions**: [boilerplate-cli-ui-go-v2](https://github.com/javimosch/boilerplate-cli-ui-go-v2) (Vue 3) | [boilerplate-cli-ui-go-v2-react](https://github.com/javimosch/boilerplate-cli-ui-go-v2-react) (React 18)
+**v1**: [boilerplate-cli-ui-go](https://github.com/javimosch/boilerplate-cli-ui-go) | **Go+Vue**: [boilerplate-cli-ui-go-v2-vue](https://github.com/javimosch/boilerplate-cli-ui-go-v2-vue) | **Go+React**: [boilerplate-cli-ui-go-v2-react](https://github.com/javimosch/boilerplate-cli-ui-go-v2-react)
 
 ## Philosophy
 
