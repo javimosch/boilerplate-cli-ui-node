@@ -12,7 +12,8 @@
     "web": "cd interfaces/webui && npm start",
     "dev": "nodemon src/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js"
+    "build": "node build.js",
+    "build:bun": "node build-bun.js"
   },
   "keywords": [
     "cli",
