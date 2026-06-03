@@ -267,6 +267,10 @@ function renderPage() {
 
 // ─── Init ───────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+    // Set default route if none specified
+    if (!window.location.hash || window.location.hash === '#' || window.location.hash === '#/') {
+        window.location.hash = '/dashboard';
+    }
     currentRoute = getHashRoute();
     renderNav();
     fetchStatus();
