@@ -37,8 +37,9 @@ npm start
 # Run Web UI
 npm run ui
 
-# Build standalone binary
-npm run build
+# Build standalone binary (Node or Bun)
+npm run build      # Node.js (123MB)
+npm run build:bun  # Bun (100MB)
 ```
 
 ## Hashbang Routing
@@ -123,20 +124,29 @@ process.exit(110); // Internal error
 
 ## Build
 
+Two build options: Node.js SEA or Bun (smaller binary).
+
+| Command | Runtime | Size |
+|---------|---------|------|
+| `npm run build` | Node.js SEA | ~123MB |
+| `npm run build:bun` | Bun | ~100MB |
+
 ```bash
-# Build standalone binary
+# Build with Node.js SEA
 npm run build
 
-# Output
-dist/boilerplate-cli-ui-node  (123MB, Linux x86-64)
+# Build with Bun (smaller)
+npm run build:bun
 ```
 
 ### Binary Details
 
-- **Runtime**: Node.js 24 (embedded)
-- **Platform**: Linux x86-64
-- **Dependencies**: None
-- **Build tool**: Node.js SEA + esbuild
+| | Node.js SEA | Bun |
+|--|-------------|-----|
+| **Size** | ~123MB | ~100MB |
+| **Platform** | Linux x86-64 | Linux x86-64 |
+| **Dependencies** | None | None |
+| **Build tool** | Node.js SEA + esbuild | Bun compile |
 
 ## Configuration
 
