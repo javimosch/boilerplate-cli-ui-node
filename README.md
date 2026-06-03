@@ -2,6 +2,8 @@
 
 **Agent-first CLI + Web UI boilerplate for Node.js.** Builds to a single binary (~123MB) with no runtime dependencies.
 
+**Go versions**: [boilerplate-cli-ui-go-v2](https://github.com/javimosch/boilerplate-cli-ui-go-v2) (Vue 3) | [boilerplate-cli-ui-go-v2-react](https://github.com/javimosch/boilerplate-cli-ui-go-v2-react) (React 18)
+
 ## Philosophy
 
 **CLI-Native, Web-Enabled, Agent-Friendly**
@@ -36,6 +38,13 @@ npm run ui
 # Build standalone binary
 npm run build
 ```
+
+## Hashbang Routing
+
+Routes use hashbang URLs:
+- `http://localhost:3000/#/dashboard` - Dashboard view
+- `http://localhost:3000/#/settings` - Settings view
+- `http://localhost:3000/` - Defaults to dashboard
 
 ## Project Structure
 
