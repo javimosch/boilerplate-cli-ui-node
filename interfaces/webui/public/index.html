@@ -3,120 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLI+WebUI Boilerplate</title>
+    <title>CLI UI</title>
+    
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons from CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- App CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header__content">
-                <h1 class="header__title">🚀 CLI+WebUI Boilerplate</h1>
-                <p class="header__subtitle">Generic modular CLI with web interface</p>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="grid-container">
-                <!-- Configuration Panel -->
-                <section class="card animate-in">
-                    <h2 class="heading--section">⚙️ Configuration</h2>
-                    
-                    <div class="form-group">
-                        <label class="label" for="setting-input">📝 Setting</label>
-                        <input type="text" id="setting-input" class="input" placeholder="Enter your setting...">
+<body class="bg-gray-50 min-h-screen">
+    <div id="app">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 transform transition-transform duration-200 -translate-x-full lg:translate-x-0">
+            <div class="flex flex-col h-full">
+                <!-- Logo -->
+                <div class="px-6 py-5 border-b border-gray-200">
+                    <h1 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-5 h-5 text-indigo-600"></i>
+                        CLI UI
+                    </h1>
+                    <p class="text-xs text-gray-500 mt-1">Go + Node.js</p>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="flex-1 px-4 py-4 space-y-1" id="nav-container"></nav>
+                
+                <!-- Footer -->
+                <div class="px-4 py-4 border-t border-gray-200">
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <div class="w-2 h-2 rounded-full bg-green-500 pulse-dot"></div>
+                        <span>Server Running</span>
                     </div>
-                    
-                    <div class="form-group">
-                        <label class="label" for="speed-select">⚡ Processing Speed</label>
-                        <select id="speed-select" class="input">
-                            <option value="turbo">🚀 Turbo (Fastest)</option>
-                            <option value="fast">⚡ Fast</option>
-                            <option value="normal" selected>🐢 Normal (Balanced)</option>
-                            <option value="gentle">🌱 Gentle (System-friendly)</option>
-                        </select>
-                    </div>
-                    
-                    <button id="save-config-btn" class="btn btn--secondary">💾 Save Configuration</button>
-                </section>
-
-                <!-- Action Panel -->
-                <section class="card animate-in animate-in--delayed">
-                    <h2 class="heading--section">🎬 Actions</h2>
-                    <div class="button-group">
-                        <button id="run-process-btn" class="btn btn--primary">🔄 Run Process</button>
-                        <button id="stats-btn" class="btn btn--secondary">📊 Show Stats</button>
-                        <button id="health-btn" class="btn btn--outline">❤️ Health Check</button>
-                    </div>
-                </section>
-
-                <!-- Progress Section -->
-                <section class="progress-section" style="display: none;">
-                    <div class="card">
-                        <h3 class="heading--section">⏳ Progress</h3>
-                        <div class="progress">
-                            <div class="progress__fill"></div>
-                        </div>
-                        <p class="progress-text">Ready to start...</p>
-                    </div>
-                </section>
-
-                <!-- Results Section -->
-                <section class="results-section" style="display: none;">
-                    <div class="card">
-                        <h3 class="heading--section">📊 Results</h3>
-                        
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-number" id="result-steps">0</div>
-                                <div class="stat-label">Steps Processed</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number" id="result-duration">0s</div>
-                                <div class="stat-label">Processing Time</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number" id="result-speed">-</div>
-                                <div class="stat-label">Speed Setting</div>
-                            </div>
-                        </div>
-                        
-                        <div class="result-details">
-                            <h4>Process Details:</h4>
-                            <div id="result-content" class="result-content"></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Stats Panel -->
-                <section class="stats-panel" style="display: none;">
-                    <div class="card">
-                        <h3 class="heading--section">📈 System Stats</h3>
-                        <div id="stats-content" class="stats-content"></div>
-                    </div>
-                </section>
-            </div>
-        </main>
-
-        <!-- Log Container -->
-        <aside class="log-section">
-            <div class="card">
-                <h3 class="heading--section">📝 Activity Log</h3>
-                <div id="log-container" class="log-container"></div>
-            </div>
-        </aside>
-
-        <!-- Modal -->
-        <div id="modal" class="modal" style="display: none;">
-            <div class="modal__content">
-                <h3 id="modal-title">Modal Title</h3>
-                <p id="modal-message">Modal message content</p>
-                <div class="button-group">
-                    <button id="modal-ok" class="btn btn--primary">OK</button>
-                    <button id="modal-cancel" class="btn btn--secondary">Cancel</button>
                 </div>
             </div>
+        </aside>
+        
+        <!-- Mobile overlay -->
+        <div id="sidebar-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeSidebar()"></div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col lg:ml-0">
+            <!-- Mobile Header -->
+            <header class="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
+                <button onclick="openSidebar()" class="text-gray-600 hover:text-gray-900">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <span class="font-semibold text-gray-900">CLI UI</span>
+                <div class="w-6"></div>
+            </header>
+            
+            <!-- Page Content -->
+            <main class="flex-1 p-6 overflow-auto" id="page-content"></main>
         </div>
     </div>
 

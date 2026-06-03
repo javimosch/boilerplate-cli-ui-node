@@ -183,9 +183,36 @@ app.get('/api/stats', async (req, res) => {
     }
 });
 
+// Server start time
+const startTime = new Date();
+
+// Status endpoint (matches Go version)
+app.get('/api/status', (req, res) => {
+    const uptimeMs = Date.now() - startTime.getTime();
+    const uptimeSeconds = uptimeMs / 1000;
+    
+    // Format uptime similar to Go
+    const hours = Math.floor(uptimeSeconds / 3600);
+    const minutes = Math.floor((uptimeSeconds % 3600) / 60);
+    const seconds = Math.floor(uptimeSeconds % 60);
+    const uptime = hours > 0 
+        ? `${hours}h${minutes}m${seconds}s`
+        : minutes > 0 
+            ? `${minutes}m${seconds}s`
+            : `${seconds}s`;
+    
+    res.json({
+        status: 'running',
+        port: PORT,
+        uptime: uptime,
+        version: '1.0.0',
+        start_time: startTime.toISOString()
+    });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+    res.json({ status: 'healthy', version: '1.0.0' });
 });
 
 // Serve the main page
