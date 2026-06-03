@@ -4,7 +4,7 @@
 
 Part of [SuperCLI](https://github.com/javimosch/supercli) - build CLI/UI plugins fast for 2026.
 
-**v1**: [boilerplate-cli-ui-go](https://github.com/javimosch/boilerplate-cli-ui-go) | **Go+Vue**: [boilerplate-cli-ui-go-v2-vue](https://github.com/javimosch/boilerplate-cli-ui-go-v2-vue) | **Go+React**: [boilerplate-cli-ui-go-v2-react](https://github.com/javimosch/boilerplate-cli-ui-go-v2-react) | **Python**: [boilerplate-cli-ui-python](https://github.com/javimosch/boilerplate-cli-ui-python)
+**v1**: [boilerplate-cli-ui-go](https://github.com/javimosch/boilerplate-cli-ui-go) | **Go+Vue**: [boilerplate-cli-ui-go-v2-vue](https://github.com/javimosch/boilerplate-cli-ui-go-v2-vue) | **Go+React**: [boilerplate-cli-ui-go-v2-react](https://github.com/javimosch/boilerplate-cli-ui-go-v2-react) | **Python+React**: [boilerplate-cli-ui-python](https://github.com/javimosch/boilerplate-cli-ui-python)
 
 ## Philosophy
 
